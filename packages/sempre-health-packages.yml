@@ -1,0 +1,34 @@
+generated: '2026-08-26'
+method: searched
+source: npm registry search, PyPI, GitHub org github.com/semprehealth, and the full
+  Sempre Health public site.
+name: Sempre Health Packages
+description: 'Sempre Health publishes no client libraries. npm registry search for
+  "sempre-health" returns no first-party package (only unrelated generic "health"
+  packages); PyPI has no semprehealth project (HTTP 404); the GitHub organization
+  github.com/semprehealth holds 7 public repositories and every one of them is either
+  a fork of an unrelated open-source project (celery, nvd3, node-gyp, gulp-connect)
+  or a small internal utility (geo-lookup, aptible-cli-docker, semprehealth.github.io),
+  with nothing touched since April 2024 and no SDK, spec, or API tooling among them.
+  There is nothing to mark official, so no SDKs pointer is emitted. package_count
+  is 0 as a measured fact.'
+package_count: 0
+packages: []
+registries_searched:
+- registry: npm
+  query: sempre-health
+  result: no first-party package
+- registry: pypi
+  query: semprehealth
+  result: HTTP 404
+- registry: github
+  query: github.com/semprehealth
+  result: 7 public repos, all forks or internal utilities; no SDK or API tooling
+evidence:
+- url: https://registry.npmjs.org/-/v1/search?text=sempre-health
+  status: 200
+- url: https://pypi.org/pypi/semprehealth/json
+  status: 404
+- url: https://github.com/semprehealth
+  status: 200
+checked: '2026-08-26'

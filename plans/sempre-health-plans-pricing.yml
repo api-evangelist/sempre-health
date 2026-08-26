@@ -1,0 +1,31 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.semprehealth.com/health-plans/ ; https://www.semprehealth.com/manufacturers/
+  ; https://www.semprehealth.com/contact/
+name: Sempre Health Plans and Pricing
+description: 'Sempre Health publishes no pricing of any kind. It is a B2B2C platform
+  sold to health plans, PBMs and pharmaceutical manufacturers under negotiated contracts;
+  the two commercial pages (health-plans, manufacturers) describe outcomes (15% adherence
+  lift, 3.7x expected ROI, 95+ NPS) and end in a contact form rather than a price,
+  a tier table, or a self-serve sign-up. There is no /pricing page (404 on every guess),
+  no developer plan, and no metered API tier - consistent with there being no public
+  API. The member-facing side is free to enrolled members by design: the product IS
+  a discount on the member''s copay. plan_count is 0 as a measured fact, not an
+  omission.'
+plan_count: 0
+pricing_url: null
+pricing_model: enterprise-contract
+self_serve: false
+free_tier: false
+plans: []
+notes:
+- Commercial motion is contract sales to payers, PBMs and manufacturers via https://www.semprehealth.com/contact/.
+- No API pricing exists because no public API exists.
+evidence:
+- url: https://www.semprehealth.com/health-plans/
+  status: 200
+- url: https://www.semprehealth.com/manufacturers/
+  status: 200
+- url: https://www.semprehealth.com/contact/
+  status: 200
+checked: '2026-08-26'

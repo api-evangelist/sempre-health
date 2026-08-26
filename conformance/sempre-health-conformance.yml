@@ -1,0 +1,85 @@
+generated: '2026-08-26'
+method: searched
+source: https://www.semprehealth.com/health-plans/ ; https://trust.semprehealth.com/
+  ; https://www.semprehealth.com/privacy/
+name: Sempre Health Conformance
+description: 'Standards and compliance assertions for Sempre Health. Sempre publishes
+  no API contract of any kind, so every technical/API standard below is recorded as
+  not conformant on the basis of absence rather than of a failed check - there is
+  nothing to check. The two regime claims that ARE evidenced come from Sempre''s own
+  pages: HITRUST certification and a signed HIPAA Business Associate Agreement with
+  each payer, both stated verbatim on the health-plans page, plus a hosted Vanta trust
+  center. Healthcare domain standards (FHIR, US Core, CARIN, HL7 v2) are listed because
+  the healthcare regime shortlists them; none is claimed or demonstrated by Sempre,
+  and this is REWARD-ONLY - the absence is recorded, not penalised as a failure.'
+conformance:
+- id: hipaa
+  conforms: true
+  evidence:
+    url: https://www.semprehealth.com/health-plans/
+    quote: Sempre signs a BAA & MSA and is HITRUST certified.
+    method: searched
+  note: Sempre operates as a HIPAA business associate to its payer customers and states
+    it executes a BAA with each.
+- id: hitrust
+  conforms: true
+  evidence:
+    url: https://www.semprehealth.com/health-plans/
+    quote: Sempre signs a BAA & MSA and is HITRUST certified.
+    method: searched
+  note: HITRUST certification is claimed in plain text on the provider's own health-plans
+    page. The certification artifact itself is not published; the trust center that
+    would hold it (trust.semprehealth.com, Vanta) loads its document list from a signed
+    GraphQL endpoint that rejects anonymous reads.
+- id: trust-center
+  conforms: true
+  evidence:
+    url: https://trust.semprehealth.com/
+    status: 200
+    method: probed
+  note: Live Vanta-hosted trust center, canonical to trust.semprehealth.com.
+- id: oauth2
+  conforms: false
+  evidence:
+    note: No OAuth surface. /.well-known/oauth-authorization-server returns 404 on
+      www and enroll, an SPA HTML shell on eligibility, and 429 on docs.
+- id: oidc
+  conforms: false
+  evidence:
+    note: No /.well-known/openid-configuration served on any host.
+- id: rfc9457
+  conforms: false
+  evidence:
+    note: No API contract or error reference published, so no problem+json envelope
+      can be observed.
+- id: fhir
+  conforms: false
+  evidence:
+    note: 'Healthcare-regime domain standard, shortlisted but NOT claimed by Sempre.
+      No FHIR endpoint, CapabilityStatement, or SMART configuration exists on any
+      host. Sempre is a pharmacy-benefit engagement and copay-adjustment platform,
+      not a clinical data holder; its own description of payer integration is a shared
+      eligible-member list, not a FHIR API.'
+- id: smart-on-fhir
+  conforms: false
+  evidence:
+    note: No /.well-known/smart-configuration; no FHIR base URL exists to carry one.
+- id: us-core
+  conforms: false
+  evidence:
+    note: Not claimed; no FHIR surface.
+- id: carin-blue-button
+  conforms: false
+  evidence:
+    note: Not claimed; no FHIR surface.
+- id: hl7-v2
+  conforms: false
+  evidence:
+    note: Not claimed anywhere in public material.
+domain_standard:
+  detected: false
+  note: 'No domain standard could be detected because there is no contract to read.
+    The plausible standards for this market - NCPDP SCRIPT/Telecom for pharmacy claims,
+    X12 270/271 for eligibility, FHIR for member data - are none of them named on
+    Sempre''s public site. REWARD-ONLY: recorded as absent, not as a failure.'
+checked: '2026-08-26'

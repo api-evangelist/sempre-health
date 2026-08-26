@@ -1,17 +1,33 @@
 aid: sempre-health
 name: Sempre Health
-description: 'Sempre Health is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Sempre Health is a San Francisco based digital health company, founded in 2015, that operates
+  a behavior-based dynamic pricing platform for prescription medications. Working with health plans, pharmacy
+  benefit managers and pharmaceutical manufacturers, it enrolls covered members and adjusts their copay
+  at the point of fill through SMS outreach: the more consistently a member refills on time, the deeper
+  the discount. The company reports more than 19 payer and PBM partners covering roughly 60% of commercially
+  insured lives in the United States, availability at retail pharmacies in all 50 states, and HITRUST
+  certification alongside a signed BAA with each plan. As of this profile Sempre Health publishes no public
+  developer program, API reference, or machine-readable API contract; its own health-plans page describes
+  payer integration as sharing a list of eligible members rather than as an API.'
 url: https://raw.githubusercontent.com/api-evangelist/sempre-health/refs/heads/main/apis.yml
+image: https://www.semprehealth.com/wp-content/uploads/2022/01/cropped-SempreHealthFavicon-192x192-1.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Health
+- Healthcare
+- Digital Health
+- Pharmacy
+- Pharmacy Benefits
+- Prescriptions
+- Medication Adherence
+- Patient Engagement
+- Health Plans
+- SMS
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +35,60 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/sempre-health-domain-security.yml
 - type: Website
+  url: https://www.semprehealth.com/
+- type: Support
+  url: https://www.semprehealth.com/contact/
+- type: Blog
+  url: https://www.semprehealth.com/press/
+- type: GitHubOrganization
+  url: https://github.com/semprehealth
+- type: TermsOfService
+  url: https://www.semprehealth.com/tos/
+- type: PrivacyPolicy
+  url: https://www.semprehealth.com/privacy/
+- type: SecondaryMarket
   url: https://www.hiive.com/securities/sempre-health-stock
+- type: LLMsTxt
+  url: llms/sempre-health-llms.txt
+- type: Packages
+  url: packages/sempre-health-packages.yml
+- type: Conformance
+  url: conformance/sempre-health-conformance.yml
+- type: Compliance
+  url: conformance/sempre-health-conformance.yml
+- type: TrustCenter
+  url: security/sempre-health-trust-center.yml
+- type: Plans
+  url: plans/sempre-health-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/sempre-health-rate-limits.yml
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 9
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: no-developer-program
+  detail: Sempre Health markets no API at all - /developers, /developer, /api, /apis, /docs, /integrations
+    and /partners are all HTTP 404 on the WordPress corporate site, its own health-plans page describes
+    payer integration as the plan sharing a list of eligible members rather than as an API, and the one
+    docs host that exists, docs.semprehealth.com, sits on Netlify and returned HTTP 429 with an empty
+    body to every request from two separate networks while being indexed by no search engine.
+  evidence:
+  - url: https://www.semprehealth.com/developers
+    status: 404
+  - url: https://www.semprehealth.com/api
+    status: 404
+  - url: https://www.semprehealth.com/openapi.json
+    status: 404
+  - url: https://docs.semprehealth.com/
+    status: 429
+  - url: https://eligibility.semprehealth.com/.well-known/agent-card.json
+    status: 200
+  - url: https://pypi.org/pypi/semprehealth/json
+    status: 404
+  checked: '2026-08-26'

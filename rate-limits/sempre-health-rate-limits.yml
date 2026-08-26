@@ -1,0 +1,27 @@
+generated: '2026-08-26'
+method: searched
+source: Full sweep of every public Sempre Health surface for a documented rate limit.
+name: Sempre Health Rate Limits
+description: 'No rate limits are documented, because no API is documented. Sempre
+  Health publishes no developer portal, API reference, or machine-readable contract
+  on any host (see x-coverage in apis.yml), so there is no published limit, window,
+  burst allowance, or 429 behaviour to record. The only rate-limit signal observed
+  anywhere in this pass was an infrastructure one and it belongs to Sempre''s own
+  docs host rather than to an API: docs.semprehealth.com, which fronts Netlify,
+  returned HTTP 429 with a zero-byte body on every request from two separate networks
+  - that is the Netlify edge refusing the site, not a documented API policy, and it
+  is recorded here only so the observation is not mistaken for one. limit_count is
+  0 as a measured fact.'
+limit_count: 0
+limits: []
+headers: []
+exhaustion_status: null
+observations:
+- url: https://docs.semprehealth.com/
+  status: 429
+  note: Netlify edge, empty body, every path, both networks. Infrastructure refusal,
+    not a published API rate-limit policy.
+- url: https://www.semprehealth.com/
+  status: 200
+  note: No RateLimit-* or X-RateLimit-* response headers present.
+checked: '2026-08-26'

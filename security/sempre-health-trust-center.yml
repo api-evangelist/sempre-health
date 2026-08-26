@@ -1,0 +1,45 @@
+generated: '2026-08-26'
+method: searched
+source: https://trust.semprehealth.com/
+name: Sempre Health Trust Center
+description: 'Sempre Health runs a hosted trust center at trust.semprehealth.com,
+  built on Vanta. The page was fetched successfully (HTTP 200) and is genuinely Sempre
+  Health''s - <link rel="canonical" href="https://trust.semprehealth.com">, <title>Sempre
+  Health Trust Center</title>, and a description naming Sempre Health''s prescription
+  savings product. The certification list itself is rendered client-side from Vanta''s
+  GraphQL API, which rejects anonymous reads (POST https://app.vanta.com/graphql ->
+  HTTP 400 "Missing `signature` or `signedAt`"), so the documents and control list
+  published inside the trust center could not be enumerated without a browser session.
+  The one certification Sempre Health names in plain text on its own site is HITRUST.'
+trust_center:
+  url: https://trust.semprehealth.com/
+  platform: Vanta
+  status: live
+  http_status: 200
+  content_type: text/html
+  machine_readable: false
+  note: Vanta trust-report SPA; contents load from a signed GraphQL endpoint and are
+    not anonymously enumerable.
+certifications:
+- name: HITRUST
+  evidence: https://www.semprehealth.com/health-plans/
+  quote: Sempre signs a BAA & MSA and is HITRUST certified.
+  method: searched
+- name: HIPAA Business Associate Agreement (BAA)
+  evidence: https://www.semprehealth.com/health-plans/
+  quote: Sempre signs a BAA & MSA and is HITRUST certified.
+  method: searched
+not_found:
+  - No SOC 2, ISO 27001, PCI DSS or FedRAMP claim is made anywhere on the public site.
+  - No security.txt, /security page, or public bug bounty could be found (see security/sempre-health-vulnerability-disclosure.yml).
+x-evidence:
+- url: https://trust.semprehealth.com/
+  status: 200
+  fetched: '2026-08-26'
+- url: https://www.semprehealth.com/health-plans/
+  status: 200
+  fetched: '2026-08-26'
+- url: https://app.vanta.com/graphql
+  status: 400
+  fetched: '2026-08-26'
+  note: anonymous introspection rejected - "Missing `signature` or `signedAt`"

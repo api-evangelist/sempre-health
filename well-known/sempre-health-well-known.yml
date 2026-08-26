@@ -1,0 +1,103 @@
+generated: '2026-08-26'
+method: probed
+source: Direct HTTPS probe of every Sempre Health host discovered from the corporate
+  site (www.semprehealth.com) and its outbound links (eligibility., enroll., docs.).
+name: Sempre Health Well-Known Documents
+description: 'Probe of the RFC 8615 /.well-known/ surface across every Sempre Health
+  host. NOTHING WAS FOUND. www.semprehealth.com (WordPress) returns a real 404 on
+  every path. eligibility.semprehealth.com is a single-page app whose catch-all route
+  answers HTTP 200 with the same 453-byte HTML shell for every path, including paths
+  that cannot exist - these are recorded as 200 but are NOT documents. enroll.semprehealth.com
+  returns its SPA 404 shell. docs.semprehealth.com resolves to Netlify and returned
+  HTTP 429 on every single request, from two different networks, so nothing on that
+  host could be read. No well-known document of any kind was retrieved, so no WellKnown
+  or SecurityTxt pointer is emitted.'
+hosts:
+- host: www.semprehealth.com
+  note: WordPress corporate site; genuine 404 handling.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: eligibility.semprehealth.com
+  note: 'FALSE-POSITIVE HOST: SPA catch-all returns HTTP 200 with a 453-byte HTML
+    shell (title "Sempre Health", single /chunk-*.js module) for every path probed.
+    Every 200 below is that shell, not a document.'
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document - treated as a miss.
+  - path: /.well-known/openid-configuration
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document - treated as a miss.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document - treated as a miss.
+  - path: /.well-known/api-catalog
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document - treated as a miss.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document - treated as a miss.
+  - path: /.well-known/agent-card.json
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document - treated as a miss.
+  - path: /.well-known/agent.json
+    status: 200
+    file: null
+    note: HTML SPA shell, not a document - treated as a miss.
+- host: enroll.semprehealth.com
+  note: Member enrollment SPA; redirects / to a plan-specific path and serves a 404
+    HTML shell for unknown paths.
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: docs.semprehealth.com
+  note: 'UNREADABLE: DNS resolves to sempre-health.netlifyglobalcdn.com; the Netlify
+    edge returned HTTP 429 with a zero-byte body on every request including the host
+    root, from both a residential connection and a second network. No content was
+    retrieved. The host is not indexed by search engines either.'
+  documents:
+  - path: /.well-known/security.txt
+    status: 429
+  - path: /.well-known/openid-configuration
+    status: 429
+  - path: /.well-known/oauth-authorization-server
+    status: 429
+  - path: /.well-known/api-catalog
+    status: 429
+  - path: /.well-known/ai-plugin.json
+    status: 429
+  - path: /.well-known/agent-card.json
+    status: 429
+  - path: /.well-known/agent.json
+    status: 429
