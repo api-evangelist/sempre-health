@@ -10,6 +10,17 @@ description: 'Sempre Health is a San Francisco based digital health company, fou
   developer program, API reference, or machine-readable API contract; its own health-plans page describes
   payer integration as sharing a list of eligible members rather than as an API.'
 url: https://raw.githubusercontent.com/api-evangelist/sempre-health/refs/heads/main/apis.yml
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.semprehealth.com/wp-content/uploads/2022/01/cropped-SempreHealthFavicon-192x192-1.png
 x-type: company
 x-source: harvest:secondary-market
